@@ -8,6 +8,13 @@ app.get("/health", (req, res) => res.json({ ok: true }));
 
 // 2) Endpoint MCP (por enquanto, resposta simples)
 // Depois você evolui com tools reais.
+// GET /mcp -> só para o Base44 conseguir "ver" que o endpoint existe
+app.get("/mcp", (req, res) => {
+  res.status(200).json({
+    ok: true,
+    message: "MCP endpoint existe. Use POST /mcp para chamadas MCP."
+  });
+});
 app.post("/mcp", (req, res) => {
   // Aqui o Base44 vai mandar pedidos MCP.
   // No MVP, só respondemos: "estou aqui".
